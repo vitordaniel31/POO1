@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=Rede
+comment1.params=
+comment1.target=Rede()
+comment2.params=
+comment2.target=java.lang.String\ getNome()
+comment3.params=nome
+comment3.target=void\ setNome(java.lang.String)
+comment4.params=
+comment4.target=java.util.ArrayList\ getMercados()
+comment5.params=mercados
+comment5.target=void\ setMercados(java.util.ArrayList)
+comment6.params=
+comment6.target=java.util.ArrayList\ rentabilidadeMercados()
+comment7.params=
+comment7.target=double\ total()
+comment8.params=mesAno
+comment8.target=double\ totalMes(java.lang.String)
+numComments=9

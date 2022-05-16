@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=Escola
+comment1.params=
+comment1.target=Escola()
+comment2.params=
+comment2.target=double\ media()
+comment3.params=media
+comment3.target=java.util.ArrayList\ estudantesAcimaMedia(double)
+comment4.params=
+comment4.target=java.util.ArrayList\ estudantesAcimaEscola()
+comment5.params=
+comment5.target=java.lang.String\ getNome()
+comment6.params=nome
+comment6.target=void\ setNome(java.lang.String)
+comment7.params=
+comment7.target=java.util.ArrayList\ getEstudantes()
+comment8.params=estudantes
+comment8.target=void\ setEstudantes(java.util.ArrayList)
+numComments=9

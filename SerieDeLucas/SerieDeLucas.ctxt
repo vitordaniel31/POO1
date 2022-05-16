@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=SerieDeLucas
+comment1.params=p\ q
+comment1.target=SerieDeLucas(int,\ int)
+comment2.params=
+comment2.target=int\ proximo()
+comment3.params=qtd_pulos
+comment3.target=int\ pular(int)
+comment4.params=n
+comment4.target=int\ lucas(int)
+numComments=5

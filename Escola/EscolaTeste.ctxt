@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=EscolaTeste
+comment1.params=
+comment1.target=Estado\ montarTudo()
+comment2.params=num
+comment2.target=Cidade[]\ criarCidades(int)
+comment3.params=num
+comment3.target=Escola[]\ criarEscolas(int)
+comment4.params=num
+comment4.target=java.util.ArrayList\ criarEstudantes(int)
+comment5.params=
+comment5.target=Estado\ criarEstado()
+numComments=6
