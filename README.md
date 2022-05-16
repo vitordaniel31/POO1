@@ -67,4 +67,4 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 ## 📝 Licença
 
-Este projeto esta sobe a licença [MIT](https://github.com/vitordaniel31/POO1/blob/main/LICENSE).
+Este projeto está sob a licença [MIT](https://github.com/vitordaniel31/POO1/blob/main/LICENSE).
