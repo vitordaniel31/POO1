@@ -1,4 +1,3 @@
-# POO1
 # Atividades da Disciplina de Programação Orientada a Objetos I (DCT1107)
 
 <h4 align="center"> 
@@ -61,8 +60,8 @@ As seguintes ferramentas foram usadas na construção do projeto:
 ## ✒️ Autor
 
 <a>
- <img style="border-radius: 40%;" src="https://avatars.githubusercontent.com/u/51799954?s=400&u=642e80143821cdf21858ef95e54fc020df455afc&v=4" width="100px;" alt=""/>
- <sub><b>Vitor Daniel</b></sub></a> <a href="https://github.com/vitordaniel31" title="Autor">🚀</a>
+ <img style="border-radius: 20%;" src="https://avatars.githubusercontent.com/u/51799954?s=400&u=642e80143821cdf21858ef95e54fc020df455afc&v=4" width="100px;" alt=""/>	<a href="https://github.com/vitordaniel31" title="Autor">Vitor Daniel🚀</a>
+</a>
 
 ---
 
