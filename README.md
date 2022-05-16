@@ -30,7 +30,7 @@ O projeto contém as atiividades desenvolvidas durante o semestre 2022.1. 🏦
   - [x] Mercadinho;
   - [x] Série de Lucas;
   - [x] Texto 2 (https://sites.google.com/view/fabricio10/p%C3%A1gina-inicial/cursos/poo1/texto02);
-  - [x] Texto 3(https://sites.google.com/view/fabricio10/p%C3%A1gina-inicial/cursos/poo1/texto03);
+  - [x] Texto 3 (https://sites.google.com/view/fabricio10/p%C3%A1gina-inicial/cursos/poo1/texto03);
 
 ---
 
