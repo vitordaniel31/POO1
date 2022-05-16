@@ -2,7 +2,7 @@
 # Atividades da Disciplina de Programação Orientada a Objetos I (DCT1107)
 
 <h4 align="center"> 
-	🚧  POO1 🏦 Em produção 🏦 🚧
+	🚧  POO1 💻 Em produção 💻 🚧
 </h4>
 
 <p align="center">
@@ -17,8 +17,8 @@
 
 ## 💻 Sobre o projeto
 
-🏦 POO1: conjunto de atividades utilizado na disciplina DCT1107  - Programação Orientada a Objetos I, para fins didáticos. 
-O projeto contém as atiividades desenvolvidas durante o semestre 2022.1. 🏦
+💻 POO1: conjunto de atividades utilizado na disciplina DCT1107  - Programação Orientada a Objetos I, para fins didáticos. 
+O projeto contém as atiividades desenvolvidas durante o semestre 2022.1. 💻
 
 ---
 
@@ -61,7 +61,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 ## ✒️ Autor
 
 <a>
- <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/51799954?s=400&u=642e80143821cdf21858ef95e54fc020df455afc&v=4" width="100px;" alt=""/>
+ <img style="border-radius: 40%;" src="https://avatars.githubusercontent.com/u/51799954?s=400&u=642e80143821cdf21858ef95e54fc020df455afc&v=4" width="100px;" alt=""/>
  <sub><b>Vitor Daniel</b></sub></a> <a href="https://github.com/vitordaniel31" title="Autor">🚀</a>
 
 ---
