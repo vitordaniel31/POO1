@@ -38,7 +38,7 @@ O projeto contém as atiividades desenvolvidas durante o semestre 2022.1. 💻
 ### Pré-requisitos
 
 Antes de começar, você vai precisar ter instalado em sua máquina a seguinte ferramenta:
-[Git](https://git-scm.com) e BlueJ(https://www.bluej.org/).
+[Git](https://git-scm.com) e [BlueJ](https://www.bluej.org/).
 
 #### 🎲 Rodando o projeto
 
