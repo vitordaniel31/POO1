@@ -5,7 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 
-public class Texto03 extends JFrame
+public class Texto03
 {
     public Texto03()
     {
@@ -60,15 +60,16 @@ public class Texto03 extends JFrame
     
     public void e3_6()
     {           
-        setTitle("Exercício 6");
-        setSize(300, 300);
+        JFrame jframe = new JFrame();
+        jframe.setTitle("Exercício 6");
+        jframe.setSize(300, 300);
         
         JMenuBar menuBar = new JMenuBar();
-        setJMenuBar(menuBar);
+        jframe.setJMenuBar(menuBar);
         menuBar.add(new JMenu("Arquivo"));
         menuBar.add(new JMenu("Editar"));
         
-        setVisible(true);
+        jframe.setVisible(true);
 
     }
     
@@ -98,10 +99,10 @@ public class Texto03 extends JFrame
     
     public void e3_9()
     {           
-        setTitle("Exercício 9");
-        setExtendedState(MAXIMIZED_BOTH);
-        
-        setVisible(true);
+        JFrame jframe = new JFrame();
+        jframe.setTitle("Exercício 9");
+        jframe.setExtendedState(jframe.MAXIMIZED_BOTH);
+        jframe.setVisible(true);
 
     }
     
