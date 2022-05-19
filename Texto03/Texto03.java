@@ -14,7 +14,7 @@ public class Texto03 extends JFrame
     
     public String e3_1()
     {   
-        return new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new Date());
+        return ""+new Date();
     }
     
     public String e3_2(String data) throws Exception 
