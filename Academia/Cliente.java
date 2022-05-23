@@ -4,6 +4,7 @@ public class Cliente
 {
     private String nome;
     private String cpf;
+    private String genero;
     private ArrayList<Metrica> metricas;
     private Metrica meta;
 
@@ -21,6 +22,14 @@ public class Cliente
     
     public void setNome(String nome){
         this.nome = nome;
+    }
+    
+    public String getGenero(){
+        return this.genero;
+    }
+    
+    public void setGenero(String genero){
+        this.genero = genero;
     }
     
     public String getCpf(){

@@ -35,7 +35,9 @@ public class TesteAcademia
         for (int i=0; i<num; i++){
             Cliente cliente = new Cliente();
             cliente.setNome("Cliente "+(i+1)); 
-            cliente.setCpf("00000000"+(i+1)); 
+            cliente.setCpf("00000000"+(i+1));
+            int sexo = rand.nextInt(2);
+            cliente.setGenero(sexo==1 ? "Masculino" : "Feminino");
             cs.add(cliente);
         }
         return cs;

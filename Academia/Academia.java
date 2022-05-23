@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Academia extends Cliente
 {
@@ -30,7 +32,6 @@ public class Academia extends Cliente
         this.clientes = clientes;
     }
 
-     
     public double imcAcademia()
     {
         double media=0.0;
@@ -44,4 +45,24 @@ public class Academia extends Cliente
         }
         return parcelas==0?0: media/parcelas;
     }
+    
+    public HashMap maioresAlturasPorGenero(){
+        HashMap<String, ArrayList<Cliente>> generoAlturas = new HashMap<String, ArrayList<Cliente>>();
+        
+        double maiorAltura = 0;
+        
+        for(Cliente cli:clientes){
+            if(cli.metricaAtual().getAltura()>=maiorAltura){
+                if(generoAlturas.containsKey(cli.getGenero())){
+                    generoAlturas.get(cli.getGenero()).add(cli); 
+                }else{
+                    generoAlturas.put(cli.getGenero(), new ArrayList<>()); 
+                    generoAlturas.get(cli.getGenero()).add(cli);    
+                }
+            }
+        }
+
+        return generoAlturas;
+    }
+    
 }
