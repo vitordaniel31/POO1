@@ -1,39 +1,76 @@
-
-/**
- * Escreva uma descrição da classe Metrica aqui.
- * 
- * @author (seu nome) 
- * @version (um número da versão ou uma data)
- */
 public class Metrica
 {
-    // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
-    double peso;
-    double altura;
-    double quadril;
-    double biceps;
-    double peito;
-    int dia;
-    int mes;
-    int ano;
+    private double peso;
+    private double altura;
+    private double cintura;
+    private double biceps;
+    private double triceps;
+    private double peito;
+    private String data;
 
-    /**
-     * Construtor para objetos da classe Metrica
-     */
     public Metrica()
     {
-        peso= 75.4;
-        altura= 182.5;
-        // inicializa variáveis de instância
-        
+        //
+    }
+    
+    public double getPeso(){
+        return this.peso;
+    }
+    
+    public void setPeso(double peso){
+        this.peso = peso;
+    }
+    
+    public double getAltura(){
+        return this.altura;
+    }
+    
+    public void setAltura(double altura){
+        this.altura = altura;
+    }
+    
+    public double getCintura(){
+        return this.cintura;
+    }
+    
+    public void setCintura(double cintura){
+        this.cintura = cintura;
+    }
+    
+    public double getPeito(){
+        return this.peito;
+    }
+    
+    public void setPeito(double peito){
+        this.peito = peito;
+    }
+    
+    public double getBiceps(){
+        return this.biceps;
+    }
+    
+    public void setBiceps(double biceps){
+        this.biceps = biceps;
+    }
+    
+    public double getTriceps(){
+        return this.triceps;
+    }
+    
+    public void setTriceps(double triceps){
+        this.triceps = triceps;
+    }
+    
+    public String getData(){
+        return this.data;
+    }
+    
+    public void setAltura(String data){
+        this.data = data;
     }
 
-    /**
-     * método
-     */
     public double imc()
     {
-        // escreva seu código aqui
         return peso/(altura*altura);
     }
 }

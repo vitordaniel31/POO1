@@ -1,42 +1,42 @@
-
-/**
- * @author Ketlly
- * @version 11/04/2022
- */
 import java.util.Random;
+import java.util.ArrayList;
+
 public class TesteAcademia
 {
     Random rand = new Random();
     
-
     public Academia montarTudo()
     {
         Academia a = criarAcademia();
-        a.clientes = criarClientes(4);
-        for (Cliente c: a.clientes){
-            c.metricas = criarMetricas(5);
+        a.setClientes(criarClientes(4));
+        for (Cliente c: a.getClientes()){
+            c.setMetricas(criarMetricas(5));
+            c.setMeta(criarMetricas(1).get(0));
         }
-        //System.out.print(a.imcAtual());
         return a;
     }
 
-    public Metrica[] criarMetricas(int num)
+    public ArrayList<Metrica> criarMetricas(int num)
     {
-        Metrica[] ms = new Metrica[num];
-        for (int i=0; i<ms.length; i++){
-            ms[i] = new Metrica();
-            ms[i].peso =50 + rand.nextInt(80); 
-            ms[i].altura =0.7 + 1.8*rand.nextDouble(); // retorna um numero entre 0 e 1
+        ArrayList<Metrica> ms = new ArrayList<>();
+        
+        for (int i=0; i<num; i++){
+            Metrica metrica = new Metrica();
+            metrica.setPeso(50 + rand.nextInt(80)); 
+            metrica.setAltura(0.3 + 1.8*rand.nextDouble()); 
+            ms.add(metrica);
         }
         return ms;
     }
     
-    public Cliente[] criarClientes(int num)
+    public ArrayList<Cliente> criarClientes(int num)
     {
-        Cliente[] cs = new Cliente[num];
-        for (int i=0; i<cs.length; i++){
-            cs[i] = new Cliente();
-            cs[i].nome = "cli"+i; 
+        ArrayList<Cliente> cs = new ArrayList<>();
+        for (int i=0; i<num; i++){
+            Cliente cliente = new Cliente();
+            cliente.setNome("Cliente "+(i+1)); 
+            cliente.setCpf("00000000"+(i+1)); 
+            cs.add(cliente);
         }
         return cs;
     }
@@ -44,7 +44,7 @@ public class TesteAcademia
     public Academia criarAcademia()
     {
         Academia a1 = new Academia();
-        a1.nome= "Academia UFRN";
+        a1.setNome("Academia UFRN");
         return a1;
     }
 }

@@ -1,43 +1,60 @@
+import java.util.ArrayList;
 
-/**
- * Escreva uma descrição da classe Cliente aqui.
- * 
- * @author Ketlly 
- * @version (um número da versão ou uma data)
- */
-public class Cliente extends Metrica
+public class Cliente
 {
-    // variáveis de instância
-    String nome;
-    int cpf;
-    int dia;
-    int mes;
-    int ano;
-    int telefone;
-    String genero;
-    Metrica metricas[]=new
-            Metrica[1000];
-    Metrica meta;
+    private String nome;
+    private String cpf;
+    private ArrayList<Metrica> metricas;
+    private Metrica meta;
 
     /**
      * Construtor para objetos da classe Cliente
      */
     public Cliente()
     {
-        
+        metricas = new ArrayList<>();
     }
     
+    public String getNome(){
+        return this.nome;
+    }
+    
+    public void setNome(String nome){
+        this.nome = nome;
+    }
+    
+    public String getCpf(){
+        return this.cpf;
+    }
+    
+    public void setCpf(String cpf){
+        this.cpf = cpf;
+    }
+    
+    public ArrayList<Metrica> getMetricas(){
+        return this.metricas;
+    }
+    
+    public void setMetricas(ArrayList<Metrica> metricas){
+        this.metricas = metricas;
+    }
+    
+    public Metrica getMeta(){
+        return this.meta;
+    }
+    
+    public void setMeta(Metrica meta){
+        this.meta = meta;
+    }
     
     public double imcAtual()
     {
-        Metrica ultima= null;
-        for(int i=0;i<metricas.length; i++){
-            if(metricas[i]==null){
-                break;
-            }
-            ultima=metricas[i];
-        }
-        return ultima==null? -1 : ultima.imc();
+        return metricas.get(metricas.size()-1).imc();
+    }
+    
+    public Metrica metricaAtual()
+    {
+        return metricas.get(metricas.size()-1);
     }
 }
 
