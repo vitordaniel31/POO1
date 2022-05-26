@@ -19,6 +19,10 @@ public class Venda
         return soma;
     }
     
+    public String getAno(){
+        return this.data.substring(6,this.data.length());
+    }
+    
     public String getMesAno(){
         return this.data.substring(3,this.data.length());
     }

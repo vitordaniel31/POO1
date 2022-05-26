@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Mercadinho
 {
@@ -9,6 +11,28 @@ public class Mercadinho
     public Mercadinho()
     {
         
+    }
+    
+    public HashMap relatorioVendasPorAno(){
+        HashMap<String, Double> vendasAno = new HashMap<String, Double>();
+                
+        for(Venda v:vendas){
+            if(vendasAno.get(v.getAno())==null){
+                vendasAno.put(v.getAno(), totalAno(v.getAno())); 
+            }
+        }
+
+        return vendasAno;
+    }
+    
+    public double totalAno(String ano){ //valor total de vendas no mês mesAno==mm/yyyy
+        double soma = 0;
+        for(Venda v:vendas){
+            if(ano.equals(v.getAno()))
+                soma+=v.total();
+        }
+        
+        return soma;
     }
     
     public double total(){ //valor total de vendas

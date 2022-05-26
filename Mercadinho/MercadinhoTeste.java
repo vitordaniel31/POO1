@@ -29,7 +29,7 @@ public class MercadinhoTeste
         ArrayList<Venda> vendas = new ArrayList<>();
         for (int i=0; i<num; i++){
             Venda v = new Venda();
-            v.setData("10/0"+ (random.nextInt(9)+1) + "/2022");
+            v.setData("10/0"+ (random.nextInt(9)+1) + "/20" + (random.nextInt(9)+10));
             v.setItens(criarItens(3));
             vendas.add(v);
         }

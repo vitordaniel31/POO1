@@ -46,6 +46,19 @@ public class Academia extends Cliente
         return parcelas==0?0: media/parcelas;
     }
     
+    public HashMap mediaDesvioPesoClientes(){
+        HashMap<String, ArrayList<Double>> metricasClientes = new HashMap<String, ArrayList<Double>>();
+        
+        for(Cliente cli:clientes){
+            metricasClientes.put(cli.getNome(), new ArrayList<>());
+            metricasClientes.get(cli.getNome()).add(cli.desvioPadraoPeso()); 
+            metricasClientes.get(cli.getNome()).add(cli.mediaPeso()); 
+
+        }
+
+        return metricasClientes;
+    }
+    
     public HashMap maioresAlturasPorGenero(){
         HashMap<String, ArrayList<Cliente>> generoAlturas = new HashMap<String, ArrayList<Cliente>>();
         
@@ -53,7 +66,7 @@ public class Academia extends Cliente
         
         for(Cliente cli:clientes){
             if(cli.metricaAtual().getAltura()>=maiorAltura){
-                if(generoAlturas.containsKey(cli.getGenero())){
+                if(generoAlturas.get(cli.getGenero())!=null){
                     generoAlturas.get(cli.getGenero()).add(cli); 
                 }else{
                     generoAlturas.put(cli.getGenero(), new ArrayList<>()); 
@@ -63,6 +76,21 @@ public class Academia extends Cliente
         }
 
         return generoAlturas;
+    }
+    
+    public HashMap clientesPorGenero(){
+        HashMap<String, Integer> clientesGenero = new HashMap<String, Integer>();
+        
+        for(Cliente cli:clientes){
+            if(clientesGenero.get(cli.getGenero())!=null){
+                clientesGenero.put(cli.getGenero(), clientesGenero.get(cli.getGenero())+1); 
+            }else{
+                clientesGenero.put(cli.getGenero(), 1); 
+            }
+
+        }
+
+        return clientesGenero;
     }
     
 }

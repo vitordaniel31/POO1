@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.lang.Math;
 
 public class Cliente
 {
@@ -64,6 +65,28 @@ public class Cliente
     public Metrica metricaAtual()
     {
         return metricas.get(metricas.size()-1);
+    }
+    
+    public double desvioPadraoPeso()
+    {
+        int cont = 0;
+        double desvioPadrao = 0;
+        for(Metrica m:metricas){
+            desvioPadrao += Math.pow(m.getPeso()-mediaPeso(), 2);
+            cont++;
+        }
+        return Math.sqrt(desvioPadrao / (cont - 1));
+    }
+    
+    public double mediaPeso()
+    {
+        int cont = 0;
+        double soma = 0;
+        for(Metrica m:metricas){
+            soma+=m.getPeso();
+            cont++;
+        }
+        return soma/cont;
     }
 }
 
