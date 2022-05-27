@@ -25,6 +25,17 @@ public class Mercadinho
         return vendasAno;
     }
     
+    public String melhorAno(){
+        HashMap<String, Double> relatorios = relatorioVendasPorAno();
+        double maior = 0;
+        String ano = "";
+        for(String chave : relatorios.keySet()){
+            if(relatorios.get(chave)>maior) maior = relatorios.get(chave);
+        }
+
+        return ano;
+    }
+    
     public double totalAno(String ano){ //valor total de vendas no mês mesAno==mm/yyyy
         double soma = 0;
         for(Venda v:vendas){
