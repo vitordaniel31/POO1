@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Conta
 {
@@ -9,6 +10,8 @@ public class Conta
     private String tipo;  
     private double saldo;  
     private double limite;
+    private double taxa_manutencao;
+    private double porc_rendimento; //porcentagem de rendimento
     private String aniversario;
     private ArrayList<String> transacoes = new ArrayList<>();
     
@@ -23,7 +26,19 @@ public class Conta
     
     public boolean depositar(double valor){
         saldo = saldo+valor;
-        transacoes.add("Data: " + LocalDateTime.now() + " - Depósito: R$" + valor + "Saldo: R$" + saldo);
+        transacoes.add("Data: " + LocalDateTime.now() + " - Depósito: R$" + valor + " Saldo: R$" + saldo);
+        return true;
+    }
+    
+    public boolean manutencao(){
+        saldo = saldo-taxa_manutencao;
+        transacoes.add("Data: " + LocalDateTime.now() + " - Taxa de Manutenção: -R$" + taxa_manutencao + " Saldo: R$" + saldo);
+        return true;
+    }
+    
+    public boolean render(){
+        saldo += saldo*porc_rendimento;
+        transacoes.add("Data: " + LocalDateTime.now() + " - Rendimento: +R$" + taxa_manutencao + " Saldo: R$" + saldo);
         return true;
     }
     
@@ -31,8 +46,8 @@ public class Conta
         if(valor<=saldo+limite){
             saldo-=valor;
             c.saldo+=valor;
-            transacoes.add("Data: " + LocalDateTime.now() + " - Transferência Enviada: -R$" + valor + "Saldo: R$" + saldo);
-            c.transacoes.add("Data: " + LocalDateTime.now() + " - Transferência Recebida: +R$" + valor + "Saldo: " + saldo);
+            transacoes.add("Data: " + LocalDateTime.now() + " - Transferência Enviada: -R$" + valor + " Saldo: R$" + saldo);
+            c.transacoes.add("Data: " + LocalDateTime.now() + " - Transferência Recebida: +R$" + valor + " Saldo: " + saldo);
             return true;
         }
         
@@ -43,7 +58,7 @@ public class Conta
     public boolean sacar(double valor){
         if(valor<=saldo+limite){
             saldo-=valor;
-            transacoes.add("Data: " + LocalDateTime.now() + " - Saque: -R$" + valor + "Saldo: R$" + saldo);
+            transacoes.add("Data: " + LocalDateTime.now() + " - Saque: -R$" + valor + " Saldo: R$" + saldo);
             return true;
         }
         return false;
@@ -77,6 +92,22 @@ public class Conta
         this.limite = limite;
     }
     
+    public double getTaxa_manutencao(){
+        return this.taxa_manutencao;
+    }
+    
+    public void setTaxa_manutencao(double taxa_manutencao){
+        this.taxa_manutencao = taxa_manutencao;
+    }
+    
+    public double getPorc_rendimento(){
+        return this.porc_rendimento;
+    }
+    
+    public void setPorc_rendimento(double porc_rendimento){
+        this.porc_rendimento = porc_rendimento;
+    }
+    
     public int getCodigo(){
         return this.codigo;
     }
@@ -88,10 +119,6 @@ public class Conta
     public ArrayList<String> getTransacoes(){
         return this.transacoes;
     }
-    
-    //public void setContas(ArrayList<String> transacoes){
-      //  this.transacoes = transacoes;
-    //}
         
     
 }

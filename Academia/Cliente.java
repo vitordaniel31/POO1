@@ -67,6 +67,15 @@ public class Cliente
         return metricas.get(metricas.size()-1);
     }
     
+    public String forma()
+    {
+        if(imcAtual()<18.5) return "Baixo Peso";
+        else if(imcAtual()>=18.5 && imcAtual()<25) return "Peso Normal";
+        else if(imcAtual()>=25 && imcAtual()<30) return "Excesso de Peso";
+        if(imcAtual()>=18.5 && imcAtual()<25) return "Obesidade";
+        else return "Obesidade Extrema";
+    } 
+    
     public double desvioPadraoPeso()
     {
         int cont = 0;

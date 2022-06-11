@@ -22,9 +22,17 @@ public class AgenciaTeste
         for (int i=0; i<num; i++){
             Conta conta = new Conta(); 
             conta.setCodigo(i+1);
-            conta.setTipo("Conta Corrente");
+            if(i%2==0){
+                conta.setTipo("Conta Corrente");
+                conta.setPorc_rendimento(0);
+            }
+            else{
+                conta.setTipo("Conta Poupança"); 
+                conta.setPorc_rendimento(random.nextDouble());
+            }
             conta.depositar(random.nextInt(10000));
             conta.setLimite(conta.getSaldo()*0.05);
+            conta.setTaxa_manutencao(random.nextInt(100)+10);
             conta.setAniversario(DateTimeFormatter.ofPattern("dd/MM/yyyy").format(LocalDateTime.now()));
             cs.add(conta);
         }

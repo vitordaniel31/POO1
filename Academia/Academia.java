@@ -1,6 +1,7 @@
-import java.util.ArrayList;
+import java.util.*;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.*;
 
 public class Academia extends Cliente
 {
@@ -14,6 +15,16 @@ public class Academia extends Cliente
     {
         clientes = new ArrayList<>();
         
+    }
+    
+    public HashMap<String, List<Cliente>> mapearContas(){
+        HashMap<String, List<Cliente>> formaClientes = new HashMap<String, List<Cliente>>();        
+        formaClientes.put("Baixo Peso", clientes.stream().filter(c->c.forma().equals("Baixo Peso")).collect(Collectors.toList()));
+        formaClientes.put("Normal", clientes.stream().filter(c->c.forma().equals("Normal")).collect(Collectors.toList()));
+        formaClientes.put("Excesso de Peso", clientes.stream().filter(c->c.forma().equals("Excesso de Peso")).collect(Collectors.toList()));
+        formaClientes.put("Obesidade", clientes.stream().filter(c->c.forma().equals("Obesidade")).collect(Collectors.toList()));
+        formaClientes.put("Obesidade Extrema", clientes.stream().filter(c->c.forma().equals("Obesidade Extrema")).collect(Collectors.toList()));
+        return formaClientes;
     }
     
     public String getNome(){
