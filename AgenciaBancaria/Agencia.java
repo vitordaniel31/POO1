@@ -28,6 +28,10 @@ public class Agencia
         contas.stream().forEach(c->c.manutencao());
     }
     
+    public void cobrarManutencaoContaCorrente(){
+        contas.stream().filter(c->c.getTipo().equals("Conta Corrente")).forEach(c->c.manutencao());
+    }
+    
     public void renderAniversariantes(){
         aniversariantes().stream().filter(c->c.getTipo().equals("Conta Poupança")).forEach(c->c.render());
     }
@@ -79,7 +83,8 @@ public class Agencia
     }
     
     public List<Conta> aniversariantes(){
-        return contas.stream().filter(c->c.getAniversario().startsWith(DateTimeFormatter.ofPattern("dd").format(LocalDateTime.now()) + "/")).collect(Collectors.toList());
+        return contas.stream().filter(c->c.getAniversario().startsWith(DateTimeFormatter.ofPattern("dd")
+        .format(LocalDateTime.now()) + "/")).collect(Collectors.toList());
     }
     
     public int getCodigo(){

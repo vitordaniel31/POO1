@@ -3,6 +3,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.*;
+import java.util.stream.*;
 
 public class Conta
 {
@@ -32,8 +34,12 @@ public class Conta
     
     public boolean manutencao(){
         saldo = saldo-taxa_manutencao;
-        transacoes.add("Data: " + LocalDateTime.now() + " - Taxa de Manutenção: -R$" + taxa_manutencao + " Saldo: R$" + saldo);
-        return true;
+        if(transacoes.stream().filter(t->t.startsWith("Data: "+ DateTimeFormatter.ofPattern("yyyy-MM-dd").format(LocalDateTime.now()))
+         && t.contains("Taxa de Manutenção")).collect(Collectors.toList()).size()<1){
+            transacoes.add("Data: " + LocalDateTime.now() + " - Taxa de Manutenção: -R$" + taxa_manutencao + " Saldo: R$" + saldo);
+            return true;
+        }
+        return false;
     }
     
     public boolean render(){

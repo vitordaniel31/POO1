@@ -8,11 +8,11 @@ public class AgenciaTeste
 {
     Random random = new Random();
     
-    public Agencia montarTudo()
+    public Banco montarTudo()
     {
-        Agencia a = criarAgencia();
-        a.setContas(criarContas(5));
-        return a;
+        Banco b = criarBanco();
+        b.setAgencias(criarAgencias(2));
+        return b;
     }
     
     public ArrayList<Conta> criarContas(int num)
@@ -39,10 +39,22 @@ public class AgenciaTeste
         return cs;
     }
     
-    public Agencia criarAgencia()
+    public ArrayList<Agencia> criarAgencias(int num)
     {
-        Agencia a1 = new Agencia();
-        a1.setCodigo(1);
-        return a1;
+        ArrayList<Agencia> as = new ArrayList<>();
+        for (int i=0; i<num; i++){
+            Agencia agencia = new Agencia(); 
+            agencia.setCodigo(i+1);
+            agencia.setContas(criarContas(5));
+            as.add(agencia);
+        }
+        return as;
+    }
+    
+    public Banco criarBanco()
+    {
+        Banco b1 = new Banco();
+        b1.setNome("Banco");
+        return b1;
     }
 }
