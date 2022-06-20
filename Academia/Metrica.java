@@ -6,11 +6,21 @@ public class Metrica
     private double biceps;
     private double triceps;
     private double peito;
-    private String data;
+    private String data; //usar formato ano/mês/dia.
 
     public Metrica()
     {
         //
+    }
+    
+    public boolean update(double peso, double altura, double cintura, double biceps, double triceps, double peito){
+        this.peso = peso;
+        this.altura = altura;
+        this.cintura = cintura;
+        this.biceps = biceps;
+        this.triceps = triceps;
+        this.peito = peito;
+        return true;
     }
     
     public double getPeso(){
@@ -65,7 +75,7 @@ public class Metrica
         return this.data;
     }
     
-    public void setAltura(String data){
+    public void setData(String data){
         this.data = data;
     }
 

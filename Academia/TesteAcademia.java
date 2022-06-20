@@ -1,5 +1,7 @@
 import java.util.Random;
 import java.util.ArrayList;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class TesteAcademia
 {
@@ -24,6 +26,11 @@ public class TesteAcademia
             Metrica metrica = new Metrica();
             metrica.setPeso(50 + rand.nextInt(80)); 
             metrica.setAltura(0.3 + 1.8*rand.nextDouble()); 
+            metrica.setCintura(30 + rand.nextInt(50)); 
+            metrica.setBiceps(30 + rand.nextInt(50)); 
+            metrica.setTriceps(30 + rand.nextInt(50)); 
+            metrica.setPeito(30 + rand.nextInt(50)); 
+            metrica.setData(DateTimeFormatter.ofPattern("yyyy/MM/dd").format(LocalDateTime.now())); 
             ms.add(metrica);
         }
         return ms;
@@ -36,6 +43,7 @@ public class TesteAcademia
             Cliente cliente = new Cliente();
             cliente.setNome("Cliente "+(i+1)); 
             cliente.setCpf("00000000"+(i+1));
+            cliente.setDataNascimento(DateTimeFormatter.ofPattern("yyyy/MM/dd").format(LocalDateTime.now()));
             int sexo = rand.nextInt(2);
             cliente.setGenero(sexo==1 ? "Masculino" : "Feminino");
             cs.add(cliente);

@@ -2,6 +2,8 @@ import java.util.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Academia extends Cliente
 {
@@ -17,7 +19,7 @@ public class Academia extends Cliente
         
     }
     
-    public HashMap<String, List<Cliente>> mapearContas(){
+    public HashMap<String, List<Cliente>> mapearClientes(){
         HashMap<String, List<Cliente>> formaClientes = new HashMap<String, List<Cliente>>();        
         formaClientes.put("Baixo Peso", clientes.stream().filter(c->c.forma().equals("Baixo Peso")).collect(Collectors.toList()));
         formaClientes.put("Normal", clientes.stream().filter(c->c.forma().equals("Normal")).collect(Collectors.toList()));
@@ -25,6 +27,61 @@ public class Academia extends Cliente
         formaClientes.put("Obesidade", clientes.stream().filter(c->c.forma().equals("Obesidade")).collect(Collectors.toList()));
         formaClientes.put("Obesidade Extrema", clientes.stream().filter(c->c.forma().equals("Obesidade Extrema")).collect(Collectors.toList()));
         return formaClientes;
+    }
+    
+    public Cliente pesquisar(String cpf){        
+        return clientes.stream().filter(c->c.getCpf().equals(cpf)).findFirst().get();
+    }
+    
+    public List<Cliente> aniversariantes(){
+        return clientes.stream().filter(c->c.getDataNascimento().endsWith("/" + DateTimeFormatter.ofPattern("MM/dd")
+        .format(LocalDateTime.now()))).collect(Collectors.toList());
+    }
+    
+    public List<Cliente> aniversariantesMes(String mes){
+        return clientes.stream().filter(c->c.getDataNascimento().endsWith("/" + mes + "/" + DateTimeFormatter.ofPattern("dd")
+        .format(LocalDateTime.now()))).collect(Collectors.toList());
+    }
+    
+    public List<Cliente> clientesPesoNormal(){
+        return clientes.stream().filter(c->c.forma().equals("Peso Normal")).collect(Collectors.toList());
+    }
+    
+    public List<Cliente> maioresPeitos(){
+        double maiorPeito = clientes.stream().max(Comparator.comparing(Cliente::peitoAtual)).get().peitoAtual();
+        return clientes.stream().filter(c->c.peitoAtual()==maiorPeito).collect(Collectors.toList());
+    }
+    
+    public boolean addCliente(String nome, String cpf, String genero, String dataNascimento){
+        Cliente c = new Cliente();
+        c.setNome(nome);
+        c.setCpf(cpf);
+        c.setGenero(genero);
+        c.setDataNascimento(dataNascimento);
+        clientes.add(c);
+        return true;
+    }
+    
+    public boolean updateCliente(String cpf, String nome, String genero, String dataNascimento){
+        Cliente c = pesquisar(cpf);
+        if(c!=null){
+            c.update(nome, genero, dataNascimento);
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean excluirCliente(String cpf){
+        Cliente c = pesquisar(cpf);
+        if(c!=null){
+            clientes.remove(c);
+            return true;
+        }
+        return false;
+    }
+    
+    public void ordenarMetricasClientes(){
+        clientes.stream().forEach(c->c.ordenarMetricas());
     }
     
     public String getNome(){
