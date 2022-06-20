@@ -9,6 +9,7 @@ public class Academia extends Cliente
 {
     private String nome;
     private ArrayList<Cliente> clientes;
+    private TreeMap<String, Cliente> clientesTree = new TreeMap<String, Cliente>();
 
     /**
      * Construtor para objetos da classe Academia
@@ -50,6 +51,11 @@ public class Academia extends Cliente
     public List<Cliente> maioresPeitos(){
         double maiorPeito = clientes.stream().max(Comparator.comparing(Cliente::peitoAtual)).get().peitoAtual();
         return clientes.stream().filter(c->c.peitoAtual()==maiorPeito).collect(Collectors.toList());
+    }
+    
+    public List<Cliente> melhoresVariacaoBiceps(){
+        double melhorVariacaoBiceps = clientes.stream().max(Comparator.comparing(Cliente::bicepsVariacao)).get().bicepsVariacao();
+        return clientes.stream().filter(c->c.bicepsVariacao()==melhorVariacaoBiceps).collect(Collectors.toList());
     }
     
     public boolean addCliente(String nome, String cpf, String genero, String dataNascimento){
@@ -99,6 +105,14 @@ public class Academia extends Cliente
     public void setClientes(ArrayList<Cliente> clientes){
         this.clientes = clientes;
     }
+    
+    public TreeMap<String, Cliente> getClientesTree(){
+        return this.clientesTree;
+    }
+    
+    public void setClientesTree(TreeMap<String, Cliente> clientesTree){
+        this.clientesTree = clientesTree;
+    }
 
     public double imcAcademia()
     {
@@ -112,6 +126,17 @@ public class Academia extends Cliente
             i++;
         }
         return parcelas==0?0: media/parcelas;
+    }
+    
+    public HashMap classificaPesoClientes(){
+        HashMap<String, List<Cliente>> pesoClientes = new HashMap<String, List<Cliente>>();
+        pesoClientes.put("Baixo Peso", clientes.stream().filter(c->c.forma().equals("Baixo Peso")).collect(Collectors.toList()));
+        pesoClientes.put("Peso Normal", clientes.stream().filter(c->c.forma().equals("Peso Normal")).collect(Collectors.toList()));
+        pesoClientes.put("Excesso de Peso", clientes.stream().filter(c->c.forma().equals("Excesso de Peso")).collect(Collectors.toList()));
+        pesoClientes.put("Obesidade", clientes.stream().filter(c->c.forma().equals("Obesidade")).collect(Collectors.toList()));
+        pesoClientes.put("Obesidade Extrema", clientes.stream().filter(c->c.forma().equals("Obesidade Extrema")).collect(Collectors.toList()));
+        
+        return pesoClientes;
     }
     
     public HashMap mediaDesvioPesoClientes(){

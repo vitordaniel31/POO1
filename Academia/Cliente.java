@@ -11,6 +11,7 @@ public class Cliente
     private String cpf;
     private String genero;
     private ArrayList<Metrica> metricas;
+    private TreeMap<String, Metrica> metricasTree = new TreeMap<String, Metrica>();
     private String dataNascimento;//usar formato ano/mês/dia.
     private Metrica meta;
 
@@ -111,6 +112,14 @@ public class Cliente
     
     public void setMetricas(ArrayList<Metrica> metricas){
         this.metricas = metricas;
+    }
+
+    public TreeMap<String, Metrica> getMetricasTree(){
+        return this.metricasTree;
+    }
+    
+    public void setMetricasTree(TreeMap<String, Metrica> metricasTree){
+        this.metricasTree = metricasTree;
     }
     
     public Metrica getMeta(){
@@ -221,13 +230,7 @@ public class Cliente
     
     public double mediaPeso()
     {
-        int cont = 0;
-        double soma = 0;
-        for(Metrica m:metricas){
-            soma+=m.getPeso();
-            cont++;
-        }
-        return soma/cont;
+        return metricas.stream().mapToDouble(m->m.getPeso()).average().orElse(Double.NaN);
     }
 }
 

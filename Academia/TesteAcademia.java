@@ -2,6 +2,7 @@ import java.util.Random;
 import java.util.ArrayList;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 public class TesteAcademia
 {
@@ -10,9 +11,13 @@ public class TesteAcademia
     public Academia montarTudo()
     {
         Academia a = criarAcademia();
-        a.setClientes(criarClientes(4));
+        ArrayList<Cliente> clientes = criarClientes(4);
+        a.setClientes(clientes);
+        a.setClientesTree(criarClientesTree(clientes));
         for (Cliente c: a.getClientes()){
-            c.setMetricas(criarMetricas(5));
+            ArrayList<Metrica> metricas = criarMetricas(5);
+            c.setMetricas(metricas);
+            c.setMetricasTree(criarMetricasTree(metricas));
             c.setMeta(criarMetricas(1).get(0));
         }
         return a;
@@ -30,8 +35,18 @@ public class TesteAcademia
             metrica.setBiceps(30 + rand.nextInt(50)); 
             metrica.setTriceps(30 + rand.nextInt(50)); 
             metrica.setPeito(30 + rand.nextInt(50)); 
-            metrica.setData(DateTimeFormatter.ofPattern("yyyy/MM/dd").format(LocalDateTime.now())); 
+            metrica.setData(DateTimeFormatter.ofPattern("yyyy/MM/").format(LocalDateTime.now())+(rand.nextInt(28)+1)); 
             ms.add(metrica);
+        }
+        return ms;
+    }
+    
+    public TreeMap<String, Metrica> criarMetricasTree(ArrayList<Metrica> metricas)
+    {
+        TreeMap<String, Metrica> ms = new TreeMap<>();
+        
+        for (Metrica metrica:metricas){
+            ms.put(metrica.getData(), metrica); 
         }
         return ms;
     }
@@ -47,6 +62,15 @@ public class TesteAcademia
             int sexo = rand.nextInt(2);
             cliente.setGenero(sexo==1 ? "Masculino" : "Feminino");
             cs.add(cliente);
+        }
+        return cs;
+    }
+    
+    public TreeMap<String, Cliente> criarClientesTree(ArrayList<Cliente> clientes)
+    {
+        TreeMap<String, Cliente> cs = new TreeMap<>();
+        for (Cliente cliente:clientes){
+            cs.put(cliente.getCpf(), cliente);
         }
         return cs;
     }
